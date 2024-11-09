@@ -114,6 +114,7 @@ export default function Home() {
     <>
       <Head>
         <title>Superior Digital Library - AI-Powered Book Discovery</title>
+        <meta name="google-site-verification" content="ox0SaptCRGAIvBOAhzonmCLyjlAummM1S_Xm5_DiZ7I" />
         <meta name="description" content="Discover your next favorite book using our AI-powered book recommendation system." />
         <meta property="og:title" content="Superior Digital Library" />
         <meta property="og:description" content="AI-Powered Book Discovery Platform" />
