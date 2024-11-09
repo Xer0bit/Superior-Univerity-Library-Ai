@@ -91,7 +91,7 @@ export default function About() {
                 <div className="bg-[#162032] backdrop-blur-lg p-8 rounded-2xl shadow-lg group-hover:shadow-xl transition-all duration-300 border border-blue-500/20">
                   <div className="w-32 h-32 mx-auto mb-4 rounded-full overflow-hidden border-4 border-blue-500/30 group-hover:border-blue-400 transition-all duration-300">
                     <Image
-                      src="/sameer.jpg"
+                      src="https://raw.githubusercontent.com/Xer0bit/Superior-Univerity-Library-Ai/refs/heads/master/public/Sameer.jpg"
                       alt="Team Member"
                       width={128}
                       height={128}
