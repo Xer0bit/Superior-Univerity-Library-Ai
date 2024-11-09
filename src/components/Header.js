@@ -16,7 +16,7 @@ export default function Header() {
             <div className="relative">
               <div className="absolute -inset-1 bg-gradient-to-r from-violet-600 to-indigo-600 rounded-full blur opacity-60 group-hover:opacity-100 transition duration-1000"></div>
               <Image
-                src="/logo.png"
+                src="https://raw.githubusercontent.com/Xer0bit/Superior-Univerity-Library-Ai/refs/heads/master/public/logo.png"
                 alt="Superior University Logo"
                 width={50}
                 height={50}

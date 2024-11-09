@@ -12,7 +12,7 @@ export default function About() {
         <div className="max-w-7xl mx-auto px-4 sm:px-9 lg:px-8 py-4 flex justify-between items-center">
           <div className="flex items-center space-x-4">
             <Image
-              src="/logo.png"
+              src="https://raw.githubusercontent.com/Xer0bit/Superior-Univerity-Library-Ai/refs/heads/master/public/logo.png"
               alt="Superior University Logo"
               width={50}
               height={50}
