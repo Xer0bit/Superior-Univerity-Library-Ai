@@ -8,9 +8,12 @@ import PageTransition from './components/PageTransition';
 
 const FloatingOrbs = () => {
   const [orbs, setOrbs] = useState([]);
+  const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
-    const newOrbs = [...Array(20)].map(() => ({
+    setMounted(true);
+    const newOrbs = [...Array(20)].map((_, index) => ({
+      id: index, // Add stable ID
       left: Math.random() * 100,
       top: Math.random() * 100,
       width: Math.random() * 300 + 100,
@@ -24,11 +27,13 @@ const FloatingOrbs = () => {
     setOrbs(newOrbs);
   }, []);
 
+  if (!mounted) return null;
+
   return (
     <div className="fixed inset-0 overflow-hidden pointer-events-none">
-      {orbs.map((orb, i) => (
+      {orbs.map((orb) => (
         <div
-          key={i}
+          key={orb.id}
           className="absolute rounded-full mix-blend-multiply filter blur-xl animate-float"
           style={{
             left: `${orb.left}%`,
@@ -53,6 +58,11 @@ export default function Home() {
   const [keySequence, setKeySequence] = useState("");
   const router = useRouter();
 
+  const handleSearch = useCallback(async () => {
+    if (!searchTerm.trim()) return;
+    router.push(`/search-results?searchTerm=${encodeURIComponent(searchTerm)}`);
+  }, [searchTerm, router]);
+
   const handleKeyPress = useCallback((e) => {
     if (e.key === 'Enter' && searchTerm.trim()) {
       handleSearch();
@@ -69,11 +79,6 @@ export default function Home() {
       return () => document.removeEventListener('keypress', handleKeyPress);
     }
   }, [handleKeyPress, isClient]);
-
-  const handleSearch = useCallback(async () => {
-    if (!searchTerm.trim()) return;
-    router.push(`/search-results?searchTerm=${encodeURIComponent(searchTerm)}`);
-  }, [searchTerm, router]);
 
   const handleMagicButtonClick = useCallback(() => {
     setIsTransitioning(true);

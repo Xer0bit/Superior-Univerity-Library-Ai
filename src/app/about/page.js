@@ -84,57 +84,41 @@ export default function About() {
 
           <div className="mt-20">
             <h2 className="text-4xl font-bold text-center mb-12 bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
-              Meet Our Core Team
+              Meet Our Team Lead
             </h2>
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
-              <div className="group relative">
-                <div className="bg-white/80 backdrop-blur-lg p-6 rounded-2xl shadow-lg group-hover:shadow-xl transition-all duration-300">
-                  <div className="w-32 h-32 mx-auto mb-4 rounded-full overflow-hidden border-4 border-purple-200 group-hover:border-purple-400 transition-all duration-300">
+            <div className="flex justify-center">
+              <div className="group relative max-w-md">
+                <div className="bg-[#162032] backdrop-blur-lg p-8 rounded-2xl shadow-lg group-hover:shadow-xl transition-all duration-300 border border-blue-500/20">
+                  <div className="w-32 h-32 mx-auto mb-4 rounded-full overflow-hidden border-4 border-blue-500/30 group-hover:border-blue-400 transition-all duration-300">
                     <Image
-                      src="/team-member-1.jpg"
+                      src="/sameer.jpg"
                       alt="Team Member"
                       width={128}
                       height={128}
                       className="object-cover"
                     />
                   </div>
-                  <h3 className="text-xl font-bold text-center text-gray-800">Sarah Johnson</h3>
-                  <p className="text-purple-600 text-center mb-2">AI Research Lead</p>
-                  <p className="text-gray-600 text-center">ML specialist with expertise in natural language processing and search optimization.</p>
-                </div>
-              </div>
-
-              <div className="group relative">
-                <div className="bg-white/80 backdrop-blur-lg p-6 rounded-2xl shadow-lg group-hover:shadow-xl transition-all duration-300">
-                  <div className="w-32 h-32 mx-auto mb-4 rounded-full overflow-hidden border-4 border-blue-200 group-hover:border-blue-400 transition-all duration-300">
-                    <Image
-                      src="/team-member-2.jpg"
-                      alt="Team Member"
-                      width={128}
-                      height={128}
-                      className="object-cover"
-                    />
+                  <h3 className="text-xl font-bold text-center text-blue-100">Muhammad Sameer Akram</h3>
+                  <p className="text-blue-400 text-center mb-2">Project Lead & Full Stack Developer</p>
+                  <p className="text-blue-100/70 text-center">Managing the entire project development and implementation with expertise in AI integration and system architecture.</p>
+                  <div className="flex justify-center space-x-4 mt-4">
+                    <a 
+                      href="https://www.upwork.com/freelancers/~010a791f35b413d1b6" 
+                      target="_blank" 
+                      rel="noopener noreferrer" 
+                      className="px-4 py-2 bg-[#6fda44] text-white rounded-lg hover:bg-[#5cb536] transition duration-300 text-sm font-semibold"
+                    >
+                      Hire on Upwork
+                    </a>
+                    <a 
+                      href="https://www.linkedin.com/in/sameer-samiullah/" 
+                      target="_blank" 
+                      rel="noopener noreferrer" 
+                      className="px-4 py-2 bg-[#0077b5] text-white rounded-lg hover:bg-[#005885] transition duration-300 text-sm font-semibold"
+                    >
+                      Visit LinkedIn
+                    </a>
                   </div>
-                  <h3 className="text-xl font-bold text-center text-gray-800">Alex Chen</h3>
-                  <p className="text-blue-600 text-center mb-2">Full Stack Developer</p>
-                  <p className="text-gray-600 text-center">Architecture specialist focusing on scalable AI implementations.</p>
-                </div>
-              </div>
-
-              <div className="group relative">
-                <div className="bg-white/80 backdrop-blur-lg p-6 rounded-2xl shadow-lg group-hover:shadow-xl transition-all duration-300">
-                  <div className="w-32 h-32 mx-auto mb-4 rounded-full overflow-hidden border-4 border-pink-200 group-hover:border-pink-400 transition-all duration-300">
-                    <Image
-                      src="/team-member-3.jpg"
-                      alt="Team Member"
-                      width={128}
-                      height={128}
-                      className="object-cover"
-                    />
-                  </div>
-                  <h3 className="text-xl font-bold text-center text-gray-800">Maria Garcia</h3>
-                  <p className="text-pink-600 text-center mb-2">UX Research Lead</p>
-                  <p className="text-gray-600 text-center">Expert in human-AI interaction and accessible design patterns.</p>
                 </div>
               </div>
             </div>
@@ -170,5 +154,5 @@ export default function About() {
         </div>
       </main>
     </div>
-  );xy
+  );
 }

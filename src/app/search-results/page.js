@@ -1,7 +1,7 @@
 "use client";
-
 import { useRouter, useSearchParams } from "next/navigation";
 import { useState, useEffect, Suspense } from "react";
+
 import Image from 'next/image';
 
 // Add this at the top for particles effect
@@ -24,16 +24,7 @@ const ParticlesBackground = () => (
   </div>
 );
 
-// Add error boundary component
-function ErrorBoundary({ children }) {
-  return (
-    <div className="min-h-screen flex items-center justify-center bg-[#0c0c1d]">
-      <div className="text-red-500">Something went wrong. Please try again.</div>
-    </div>
-  );
-}
-
-function SearchResults() {
+export default function SearchResultsClient() {
   const [searchResults, setSearchResults] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState(null);
@@ -43,7 +34,6 @@ function SearchResults() {
 
   useEffect(() => {
     let isMounted = true;
-    let abortController = new AbortController();
 
     const fetchResults = async () => {
       try {
@@ -55,9 +45,7 @@ function SearchResults() {
         }
 
         const query = encodeURIComponent(searchTerm).replace(/%20/g, '+');
-        const response = await fetch(`https://openlibrary.org/search.json?q=${query}`, {
-          signal: abortController.signal
-        });
+        const response = await fetch(`https://openlibrary.org/search.json?q=${query}`);
         
         if (!isMounted) return;
 
@@ -77,7 +65,6 @@ function SearchResults() {
           setSearchResults(results);
         }
       } catch (err) {
-        if (err.name === 'AbortError') return;
         if (isMounted) {
           setError("Failed to fetch search results");
           console.error(err);
@@ -92,7 +79,6 @@ function SearchResults() {
     fetchResults();
     return () => {
       isMounted = false;
-      abortController.abort();
     };
   }, [searchParams]);
 
@@ -208,16 +194,3 @@ function SearchResults() {
     </div>
   );
 }
-
-export default function SearchResultsPage() {
-  return (
-    <ErrorBoundary>
-      <Suspense fallback={<div>Loading...</div>}>
-        <SearchResults />
-      </Suspense>
-    </ErrorBoundary>
-  );
-}
-
-// Add static page configuration
-export const dynamic = 'force-dynamic';
