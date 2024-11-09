@@ -1,8 +1,8 @@
+
 "use client";
 
 import { useState } from "react";
-import { useRouter } from "next/navigation";
-
+import { useRouter } from "next/router";
 
 export default function Home() {
   const [searchTerm, setSearchTerm] = useState("");
@@ -18,7 +18,7 @@ export default function Home() {
   };
 
   return (
-    <div className="min-h-screen p-8 pb-20 sm:p-20 font-sans bg-gradient-to-r from-blue-100 to-purple-100">
+    <div className="min-h-screen p-8 pb-20 sm:p-20 font-sans bg-gradient-to-r from-blue-100 to-purple-100" cz-shortcut-listen="true">
       <header className="mb-8 text-center">
         <h1 className="text-5xl font-extrabold text-gray-800">Superior Digital Library</h1>
         <p className="text-lg text-gray-700 mt-2">Find your next favorite book</p>
@@ -42,7 +42,7 @@ export default function Home() {
         </div>
         <button
           onClick={handleMagicButtonClick}
-          className="p-3 bg-purple-500 text-white rounded shadow-md hover:bg-purple-600 focus:outline-none focus:ring-2 focus:ring-purple-500 transform transition-transform duration-300 hover:scale-105 hover:shadow-lg"
+          className="p-3 bg-purple-500 text-white rounded shadow-md hover:bg-purple-600 focus:outline-none focus:ring-2 focus:ring-purple-500"
         >
           Magic Button
         </button>
