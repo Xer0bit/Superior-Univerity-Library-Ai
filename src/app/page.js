@@ -1,24 +1,57 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
-
 
 export default function Home() {
   const [searchTerm, setSearchTerm] = useState("");
+  const [isClient, setIsClient] = useState(false);
+  const [isTransitioning, setIsTransitioning] = useState(false);
+  const [searchResults, setSearchResults] = useState([]);
   const router = useRouter();
 
-  const handleSearch = () => {
-    // Perform search logic here
+  useEffect(() => {
+    setIsClient(true);
+  }, []);
+
+  const handleSearch = async () => {
     console.log("Searching for:", searchTerm);
+    try {
+      const query = encodeURIComponent(searchTerm).replace(/%20/g, '+');
+      const url = `https://openlibrary.org/search.json?q=${query}`;
+      console.log("Fetching search results from:", url); // Log the URL
+      const response = await fetch(url);
+      const data = await response.json();
+      console.log("Fetched data:", data); // Log the fetched data
+      const results = data.docs.map((doc) => ({
+        id: doc.key,
+        title: doc.title,
+        author: doc.author_name ? doc.author_name.join(", ") : "Unknown Author",
+        first_publish_year: doc.first_publish_year || "Unknown Year",
+      }));
+      setSearchResults(results);
+      router.push({
+        pathname: "/search-results",
+        query: { searchTerm }
+      });
+    } catch (error) {
+      console.error("Error fetching search results:", error);
+    }
   };
 
   const handleMagicButtonClick = () => {
-    router.push("/recommendations");
+    setIsTransitioning(true);
+    setTimeout(() => {
+      router.push("/recommendations");
+    }, 500); // Match this duration with the CSS transition duration
   };
 
+  if (!isClient) {
+    return null;
+  }
+
   return (
-    <div className="min-h-screen p-8 pb-20 sm:p-20 font-sans bg-gradient-to-r from-blue-100 to-purple-100">
+    <div className={`min-h-screen p-8 pb-20 sm:p-20 font-sans bg-gradient-to-r from-blue-100 to-purple-100 ${isTransitioning ? 'transitioning' : ''}`}>
       <header className="mb-8 text-center">
         <h1 className="text-5xl font-extrabold text-gray-800">Superior Digital Library</h1>
         <p className="text-lg text-gray-700 mt-2">Find your next favorite book</p>
