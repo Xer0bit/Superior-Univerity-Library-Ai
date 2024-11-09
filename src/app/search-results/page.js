@@ -1,28 +1,8 @@
 "use client";
 import { useRouter, useSearchParams } from "next/navigation";
 import { useState, useEffect, Suspense } from "react";
-
 import Image from 'next/image';
-
-// Add this at the top for particles effect
-const ParticlesBackground = () => (
-  <div className="fixed inset-0 z-0">
-    <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(50,50,50,0.2)_0%,rgba(0,0,0,0)_100%)]" />
-    {[...Array(20)].map((_, i) => (
-      <div
-        key={i}
-        className="particle absolute bg-blue-400/20 rounded-full"
-        style={{
-          left: `${Math.random() * 100}%`,
-          top: `${Math.random() * 100}%`,
-          width: `${Math.random() * 6 + 2}px`,
-          height: `${Math.random() * 6 + 2}px`,
-          animation: `float ${Math.random() * 10 + 5}s linear infinite`
-        }}
-      />
-    ))}
-  </div>
-);
+import ParticlesBackground from '../components/ParticlesBackground';
 
 export default function SearchResultsClient() {
   const [searchResults, setSearchResults] = useState([]);
