@@ -57,7 +57,7 @@ export default function Home() {
     if (e.key === 'Enter' && searchTerm.trim()) {
       handleSearch();
     }
-  }, [searchTerm]);
+  }, [searchTerm, handleSearch]);
 
   useEffect(() => {
     setIsClient(true); // Set to true after initial render

@@ -24,7 +24,16 @@ const ParticlesBackground = () => (
   </div>
 );
 
-export default function SearchResultsClient() {
+// Add error boundary component
+function ErrorBoundary({ children }) {
+  return (
+    <div className="min-h-screen flex items-center justify-center bg-[#0c0c1d]">
+      <div className="text-red-500">Something went wrong. Please try again.</div>
+    </div>
+  );
+}
+
+function SearchResults() {
   const [searchResults, setSearchResults] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState(null);
@@ -34,6 +43,7 @@ export default function SearchResultsClient() {
 
   useEffect(() => {
     let isMounted = true;
+    let abortController = new AbortController();
 
     const fetchResults = async () => {
       try {
@@ -45,7 +55,9 @@ export default function SearchResultsClient() {
         }
 
         const query = encodeURIComponent(searchTerm).replace(/%20/g, '+');
-        const response = await fetch(`https://openlibrary.org/search.json?q=${query}`);
+        const response = await fetch(`https://openlibrary.org/search.json?q=${query}`, {
+          signal: abortController.signal
+        });
         
         if (!isMounted) return;
 
@@ -65,6 +77,7 @@ export default function SearchResultsClient() {
           setSearchResults(results);
         }
       } catch (err) {
+        if (err.name === 'AbortError') return;
         if (isMounted) {
           setError("Failed to fetch search results");
           console.error(err);
@@ -79,6 +92,7 @@ export default function SearchResultsClient() {
     fetchResults();
     return () => {
       isMounted = false;
+      abortController.abort();
     };
   }, [searchParams]);
 
@@ -194,3 +208,16 @@ export default function SearchResultsClient() {
     </div>
   );
 }
+
+export default function SearchResultsPage() {
+  return (
+    <ErrorBoundary>
+      <Suspense fallback={<div>Loading...</div>}>
+        <SearchResults />
+      </Suspense>
+    </ErrorBoundary>
+  );
+}
+
+// Add static page configuration
+export const dynamic = 'force-dynamic';
