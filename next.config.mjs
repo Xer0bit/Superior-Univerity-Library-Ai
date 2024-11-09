@@ -1,9 +1,10 @@
 const isProd = process.env.NODE_ENV === 'production';
+
 const nextConfig = {
   reactStrictMode: true,
   images: {
-    unoptimized: true, // Disable default image optimization
-    domains: ['covers.openlibrary.org'], // Add allowed image domains
+    unoptimized: true,
+    domains: ['covers.openlibrary.org'],
     remotePatterns: [
       {
         protocol: 'https',
