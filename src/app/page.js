@@ -17,8 +17,11 @@ export default function Home() {
   }, [searchTerm]);
 
   useEffect(() => {
-    window.addEventListener('keypress', handleKeyPress);
-    return () => window.removeEventListener('keypress', handleKeyPress);
+    // Only add event listener on client-side
+    if (typeof window !== 'undefined') {
+      document.addEventListener('keypress', handleKeyPress);
+      return () => document.removeEventListener('keypress', handleKeyPress);
+    }
   }, [handleKeyPress]);
 
   const handleSearch = useCallback(async () => {
