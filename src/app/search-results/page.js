@@ -141,7 +141,7 @@ export default function SearchResults() {
                   Status: {result.ebook_access === "borrowable" ? "Available" : "Not Available"}
                 </p>
                 <button
-                  onClick={() => router.push(`https://openlibrary.org${result.id}`)}
+                  onClick={() => window.open(`https://openlibrary.org/works/${result.id.split('/works/')[1]}`, '_blank')}
                   className="mt-4 w-full p-2 bg-blue-500 text-white rounded shadow-md hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-500"
                 >
                   View on OpenLibrary
