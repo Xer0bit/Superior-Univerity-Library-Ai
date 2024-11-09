@@ -21,24 +21,23 @@ export default function Recommendations() {
   };
 
   return (
-    <div className="min-h-screen p-8 pb-20 sm:p-20 font-sans bg-gradient-to-br from-indigo-900 via-purple-900 to-pink-800 animate-gradient-x">
+    <div className="min-h-screen p-8 pb-20 sm:p-20 font-sans bg-gradient-to-br from-slate-900 via-blue-950 to-slate-900">
       <header className="mb-12 text-center">
-        <h1 className="text-6xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-600 animate-pulse">
+        <h1 className="text-6xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-cyan-300 animate-pulse">
           AI Book Recommendations
         </h1>
-        <p className="text-xl text-blue-200 mt-4 opacity-80">Discover your next favorite book through our AI-powered recommendations</p>
+        <p className="text-lg text-blue-300 mt-4 opacity-80">Discover your next favorite book through our AI-powered recommendations</p>
       </header>
       <main className="flex flex-col items-center">
-        <div className="flex flex-col w-full max-w-md mb-8 backdrop-blur-lg bg-white/10 p-8 rounded-2xl shadow-2xl border border-white/20">
+        <div className="flex flex-col w-full max-w-md mb-8 backdrop-blur-sm bg-slate-900/70 p-8 rounded-2xl shadow-2xl border border-blue-900/50">
           <div className="relative mb-6">
             <input
               type="text"
               placeholder="Enter your name..."
               value={name}
               onChange={(e) => setName(e.target.value)}
-              className="w-full px-6 py-4 bg-transparent border-2 border-blue-400/30 rounded-xl text-white placeholder-blue-200/50 focus:border-blue-400 focus:ring-2 focus:ring-blue-400/50 transition-all duration-300 outline-none"
+              className="w-full px-6 py-4 bg-slate-800/50 border-2 border-blue-800/30 rounded-xl text-white placeholder-blue-400/50 focus:border-blue-500 focus:ring-2 focus:ring-blue-500/50 transition-all duration-300 outline-none"
             />
-            <div className="absolute inset-0 bg-blue-400/20 rounded-xl blur opacity-50 group-hover:opacity-100 transition-opacity"></div>
           </div>
           <div className="relative mb-6">
             <input
@@ -46,7 +45,7 @@ export default function Recommendations() {
               placeholder="Enter your age..."
               value={age}
               onChange={(e) => setAge(e.target.value)}
-              className="w-full px-6 py-4 bg-transparent border-2 border-purple-400/30 rounded-xl text-white placeholder-blue-200/50 focus:border-purple-400 focus:ring-2 focus:ring-purple-400/50 transition-all duration-300 outline-none"
+              className="w-full px-6 py-4 bg-slate-800/50 border-2 border-blue-800/30 rounded-xl text-white placeholder-blue-400/50 focus:border-blue-500 focus:ring-2 focus:ring-blue-500/50 transition-all duration-300 outline-none"
             />
           </div>
           <div className="relative mb-6">
@@ -55,7 +54,7 @@ export default function Recommendations() {
               placeholder="Enter your favorite genre..."
               value={genre}
               onChange={(e) => setGenre(e.target.value)}
-              className="w-full px-6 py-4 bg-transparent border-2 border-pink-400/30 rounded-xl text-white placeholder-blue-200/50 focus:border-pink-400 focus:ring-2 focus:ring-pink-400/50 transition-all duration-300 outline-none"
+              className="w-full px-6 py-4 bg-slate-800/50 border-2 border-blue-800/30 rounded-xl text-white placeholder-blue-400/50 focus:border-blue-500 focus:ring-2 focus:ring-blue-500/50 transition-all duration-300 outline-none"
             />
           </div>
           <div className="relative mb-6">
@@ -64,7 +63,7 @@ export default function Recommendations() {
               placeholder="Enter your hobbies..."
               value={hobbies}
               onChange={(e) => setHobbies(e.target.value)}
-              className="w-full px-6 py-4 bg-transparent border-2 border-green-400/30 rounded-xl text-white placeholder-blue-200/50 focus:border-green-400 focus:ring-2 focus:ring-green-400/50 transition-all duration-300 outline-none"
+              className="w-full px-6 py-4 bg-slate-800/50 border-2 border-blue-800/30 rounded-xl text-white placeholder-blue-400/50 focus:border-blue-500 focus:ring-2 focus:ring-blue-500/50 transition-all duration-300 outline-none"
             />
           </div>
           <div className="relative mb-6">
@@ -73,7 +72,7 @@ export default function Recommendations() {
               placeholder="Enter your preferred language..."
               value={language}
               onChange={(e) => setLanguage(e.target.value)}
-              className="w-full px-6 py-4 bg-transparent border-2 border-yellow-400/30 rounded-xl text-white placeholder-blue-200/50 focus:border-yellow-400 focus:ring-2 focus:ring-yellow-400/50 transition-all duration-300 outline-none"
+              className="w-full px-6 py-4 bg-slate-800/50 border-2 border-blue-800/30 rounded-xl text-white placeholder-blue-400/50 focus:border-blue-500 focus:ring-2 focus:ring-blue-500/50 transition-all duration-300 outline-none"
             />
           </div>
           <div className="relative mb-8">
@@ -82,13 +81,13 @@ export default function Recommendations() {
               placeholder="Enter your reason for reading books..."
               value={reason}
               onChange={(e) => setReason(e.target.value)}
-              className="w-full px-6 py-4 bg-transparent border-2 border-red-400/30 rounded-xl text-white placeholder-blue-200/50 focus:border-red-400 focus:ring-2 focus:ring-red-400/50 transition-all duration-300 outline-none"
+              className="w-full px-6 py-4 bg-slate-800/50 border-2 border-blue-800/30 rounded-xl text-white placeholder-blue-400/50 focus:border-blue-500 focus:ring-2 focus:ring-blue-500/50 transition-all duration-300 outline-none"
             />
           </div>
           <button
             onClick={handleRecommend}
             disabled={isLoading}
-            className="relative px-8 py-4 bg-gradient-to-r from-blue-600 to-purple-600 text-white rounded-xl font-bold text-lg shadow-lg hover:shadow-blue-500/50 transform hover:scale-105 transition-all duration-300 hover:from-blue-700 hover:to-purple-700 focus:outline-none focus:ring-2 focus:ring-purple-500 overflow-hidden group"
+            className="relative px-8 py-4 bg-gradient-to-r from-blue-800 to-blue-600 text-white rounded-xl font-bold text-lg shadow-lg hover:shadow-blue-500/30 transform hover:scale-105 transition-all duration-300 hover:from-blue-700 hover:to-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-500 overflow-hidden group"
           >
             {isLoading ? (
               <div className="flex items-center justify-center">
@@ -101,7 +100,7 @@ export default function Recommendations() {
             ) : (
               <span className="relative z-10">Get AI Recommendations</span>
             )}
-            <div className="absolute inset-0 bg-gradient-to-r from-blue-400 to-purple-400 opacity-0 group-hover:opacity-20 transition-opacity duration-300"></div>
+            <div className="absolute inset-0 bg-gradient-to-r from-blue-400 to-cyan-400 opacity-0 group-hover:opacity-20 transition-opacity duration-300"></div>
           </button>
         </div>
       </main>

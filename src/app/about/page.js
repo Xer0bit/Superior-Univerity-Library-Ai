@@ -7,8 +7,8 @@ export default function About() {
   const router = useRouter();
 
   return (
-    <div className="min-h-screen p-8 pb-20 sm:p-20 font-sans bg-gradient-to-r from-blue-100 to-purple-100">
-      <header className="fixed top-0 left-0 w-full bg-gradient-to-r from-white to-blue-50 shadow-lg z-10 border-b-2 border-blue-100">
+    <div className="min-h-screen p-8 pb-20 sm:p-20 font-sans bg-[#0c1220]">
+      <header className="fixed top-0 left-0 w-full backdrop-blur-md bg-[#162032]/80 shadow-lg z-10 border-b border-blue-500/10">
         <div className="max-w-7xl mx-auto px-4 sm:px-9 lg:px-8 py-4 flex justify-between items-center">
           <div className="flex items-center space-x-4">
             <Image
@@ -44,46 +44,102 @@ export default function About() {
           </nav>
         </div>
       </header>
+
       <main className="mt-24">
         <div className="max-w-7xl mx-auto">
-          {/* Mission Section */}
           <div className="text-center mb-16">
-            <h1 className="text-4xl font-bold mb-6 bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
-              Democratizing Education Worldwide
+            <h1 className="text-5xl font-bold mb-6 bg-gradient-to-r from-blue-400 to-blue-600 bg-clip-text text-transparent">
+              AI-Powered Education for Everyone
             </h1>
-            <p className="text-xl text-gray-700 max-w-3xl mx-auto leading-relaxed">
-              We're a passionate group of students from Superior University committed to breaking down barriers in education. Our mission is to make knowledge accessible to everyone, anywhere, with just an internet connection.
+            <p className="text-xl text-blue-100/80 max-w-3xl mx-auto leading-relaxed">
+              Leveraging cutting-edge AI technology to revolutionize digital learning. Our platform uses advanced algorithms to personalize your learning experience and make knowledge discovery seamless.
             </p>
           </div>
 
-          {/* Vision Cards */}
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mt-12">
-            <div className="bg-white p-8 rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 border border-blue-100">
-              <div className="text-5xl mb-4 text-blue-600">🎯</div>
-              <h2 className="text-2xl font-bold mb-4 text-gray-800">Our Mission</h2>
+            <div className="bg-[#162032]/80 backdrop-blur-lg p-8 rounded-2xl shadow-xl hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 border border-blue-500/10">
+              <div className="text-5xl mb-4">🤖</div>
+              <h2 className="text-2xl font-bold mb-4 text-gray-800">AI-Powered Search</h2>
               <p className="text-gray-600 leading-relaxed">
-                To create a barrier-free digital library that enables anyone, regardless of their financial situation, to access quality educational resources and literature.
+                Our advanced AI algorithms understand context and intent, helping you find exactly what you are looking for with natural language processing.
               </p>
             </div>
 
-            <div className="bg-white p-8 rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 border border-blue-100">
-              <div className="text-5xl mb-4 text-purple-600">💡</div>
-              <h2 className="text-2xl font-bold mb-4 text-gray-800">Our Vision</h2>
+            <div className="bg-[#162032]/80 backdrop-blur-lg p-8 rounded-2xl shadow-xl hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 border border-blue-500/10">
+              <div className="text-5xl mb-4">🧠</div>
+              <h2 className="text-2xl font-bold mb-4 text-gray-800">Smart Learning</h2>
               <p className="text-gray-600 leading-relaxed">
-                A world where knowledge knows no boundaries, where every curious mind has the opportunity to learn, grow, and contribute to global progress.
+                Personalized recommendations and adaptive learning paths that evolve with your interests and progress.
               </p>
             </div>
 
-            <div className="bg-white p-8 rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 border border-blue-100">
-              <div className="text-5xl mb-4 text-pink-600">🤝</div>
-              <h2 className="text-2xl font-bold mb-4 text-gray-800">Our Impact</h2>
+            <div className="bg-[#162032]/80 backdrop-blur-lg p-8 rounded-2xl shadow-xl hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 border border-blue-500/10">
+              <div className="text-5xl mb-4">📚</div>
+              <h2 className="text-2xl font-bold mb-4 text-gray-800">Digital Innovation</h2>
               <p className="text-gray-600 leading-relaxed">
-                Join thousands of learners worldwide who are already part of our community, accessing resources and expanding their horizons without financial barriers.
+                Combining traditional library services with cutting-edge technology for an enhanced learning experience.
               </p>
             </div>
           </div>
 
-          {/* Stats Section */}
+          <div className="mt-20">
+            <h2 className="text-4xl font-bold text-center mb-12 bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
+              Meet Our Core Team
+            </h2>
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
+              <div className="group relative">
+                <div className="bg-white/80 backdrop-blur-lg p-6 rounded-2xl shadow-lg group-hover:shadow-xl transition-all duration-300">
+                  <div className="w-32 h-32 mx-auto mb-4 rounded-full overflow-hidden border-4 border-purple-200 group-hover:border-purple-400 transition-all duration-300">
+                    <Image
+                      src="/team-member-1.jpg"
+                      alt="Team Member"
+                      width={128}
+                      height={128}
+                      className="object-cover"
+                    />
+                  </div>
+                  <h3 className="text-xl font-bold text-center text-gray-800">Sarah Johnson</h3>
+                  <p className="text-purple-600 text-center mb-2">AI Research Lead</p>
+                  <p className="text-gray-600 text-center">ML specialist with expertise in natural language processing and search optimization.</p>
+                </div>
+              </div>
+
+              <div className="group relative">
+                <div className="bg-white/80 backdrop-blur-lg p-6 rounded-2xl shadow-lg group-hover:shadow-xl transition-all duration-300">
+                  <div className="w-32 h-32 mx-auto mb-4 rounded-full overflow-hidden border-4 border-blue-200 group-hover:border-blue-400 transition-all duration-300">
+                    <Image
+                      src="/team-member-2.jpg"
+                      alt="Team Member"
+                      width={128}
+                      height={128}
+                      className="object-cover"
+                    />
+                  </div>
+                  <h3 className="text-xl font-bold text-center text-gray-800">Alex Chen</h3>
+                  <p className="text-blue-600 text-center mb-2">Full Stack Developer</p>
+                  <p className="text-gray-600 text-center">Architecture specialist focusing on scalable AI implementations.</p>
+                </div>
+              </div>
+
+              <div className="group relative">
+                <div className="bg-white/80 backdrop-blur-lg p-6 rounded-2xl shadow-lg group-hover:shadow-xl transition-all duration-300">
+                  <div className="w-32 h-32 mx-auto mb-4 rounded-full overflow-hidden border-4 border-pink-200 group-hover:border-pink-400 transition-all duration-300">
+                    <Image
+                      src="/team-member-3.jpg"
+                      alt="Team Member"
+                      width={128}
+                      height={128}
+                      className="object-cover"
+                    />
+                  </div>
+                  <h3 className="text-xl font-bold text-center text-gray-800">Maria Garcia</h3>
+                  <p className="text-pink-600 text-center mb-2">UX Research Lead</p>
+                  <p className="text-gray-600 text-center">Expert in human-AI interaction and accessible design patterns.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8 mt-16 text-center">
             <div className="p-6">
               <div className="text-3xl font-bold text-blue-600">28 Million+</div>
@@ -103,17 +159,16 @@ export default function About() {
             </div>
           </div>
 
-          {/* Call to Action */}
           <div className="text-center mt-16">
             <button 
               onClick={() => router.push("/contact")}
-              className="bg-gradient-to-r from-blue-600 to-purple-600 text-white px-8 py-3 rounded-full font-semibold hover:shadow-lg transition duration-300 ease-in-out hover:scale-105"
+              className="bg-gradient-to-r from-blue-600 via-purple-600 to-indigo-600 text-white px-8 py-3 rounded-full font-semibold hover:shadow-lg transition duration-300 ease-in-out hover:scale-105 backdrop-blur-lg"
             >
-              Join Our Mission
+              Join Our AI Revolution
             </button>
           </div>
         </div>
       </main>
     </div>
-  );
+  );xy
 }
