@@ -1,15 +1,50 @@
-
 "use client";
 
 import { useRouter } from "next/navigation";
 import Image from 'next/image';
+import { useState, useEffect } from 'react';
 
 export default function Contact() {
   const router = useRouter();
+  const [mounted, setMounted] = useState(false);
+  const [formSubmitted, setFormSubmitted] = useState(false);
+  const [formData, setFormData] = useState({
+    name: '', email: '', subject: '', message: ''
+  });
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
+
+  const handleChange = (e) => {
+    setFormData(prev => ({
+      ...prev,
+      [e.target.id]: e.target.value
+    }));
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    setFormSubmitted(true);
+  };
+
+  if (!mounted) {
+    return null; // Return null on server-side to prevent hydration mismatch
+  }
 
   return (
-    <div className="min-h-screen p-8 pb-20 sm:p-20 font-sans bg-gradient-to-r from-blue-100 to-purple-100">
-      <header className="fixed top-0 left-0 w-full bg-gradient-to-r from-white to-blue-50 shadow-lg z-10 border-b-2 border-blue-100">
+    <div className="min-h-screen bg-[#0A0A1E] relative overflow-hidden">
+      {/* Animated Background Elements */}
+      <div className="absolute inset-0">
+        <div className="absolute inset-0 bg-gradient-to-br from-blue-900/20 via-purple-900/20 to-black/50"></div>
+        <div className="absolute top-0 left-0 w-full h-full opacity-30">
+          <div className="absolute top-10 left-10 w-72 h-72 bg-blue-500 rounded-full filter blur-[100px]"></div>
+          <div className="absolute top-40 right-10 w-72 h-72 bg-purple-500 rounded-full filter blur-[100px]"></div>
+        </div>
+      </div>
+
+      {/* Header */}
+      <header className="fixed top-0 left-0 w-full backdrop-blur-md bg-black/20 border-b border-white/10 z-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-9 lg:px-8 py-4 flex justify-between items-center">
           <div className="flex items-center space-x-4">
             <Image
@@ -45,12 +80,80 @@ export default function Contact() {
           </nav>
         </div>
       </header>
-      <main className="mt-24">
-        <h1 className="text-4xl font-bold text-center mb-8">Contact Us</h1>
+
+      {/* Main Content */}
+      <main className="relative pt-32 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto z-10">
+        <div className="text-center mb-12">
+          <h1 className="text-5xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-purple-600 mb-4">
+            Connect with Our AI Assistant
+          </h1>
+          <p className="text-gray-400 text-lg max-w-2xl mx-auto">
+            Experience the future of library assistance. Our AI-powered system is ready to help you 24/7.
+          </p>
+        </div>
+
         <div className="max-w-xl mx-auto">
-          <form className="space-y-4">
-            {/* Add contact form fields */}
-          </form>
+          {!formSubmitted ? (
+            <form 
+              onSubmit={handleSubmit} 
+              className="space-y-6 backdrop-blur-xl bg-white/5 p-8 rounded-2xl border border-white/10 shadow-[0_0_40px_rgba(8,_112,_184,_0.7)]"
+              suppressHydrationWarning
+            >
+              {['name', 'email', 'subject'].map((field) => (
+                <div key={`form-field-${field}`}>
+                  <label htmlFor={field} className="block text-gray-300 font-medium mb-2 capitalize">
+                    {field}
+                  </label>
+                  <input
+                    type={field === 'email' ? 'email' : 'text'}
+                    id={field}
+                    value={formData[field]}
+                    onChange={handleChange}
+                    required
+                    className="w-full px-4 py-3 bg-white/5 border border-white/10 rounded-lg text-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-purple-500/50 transition-all duration-300"
+                    placeholder={`Enter your ${field}`}
+                  />
+                </div>
+              ))}
+              <div>
+                <label htmlFor="message" className="block text-gray-300 font-medium mb-2">Message</label>
+                <textarea
+                  id="message"
+                  value={formData.message}
+                  onChange={handleChange}
+                  required
+                  rows="4"
+                  className="w-full px-4 py-3 bg-white/5 border border-white/10 rounded-lg text-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-purple-500/50 transition-all duration-300"
+                  placeholder="How can our AI assist you today?"
+                ></textarea>
+              </div>
+              <button
+                type="submit"
+                className="w-full bg-gradient-to-r from-blue-600 to-purple-600 text-white font-bold py-4 px-6 rounded-lg transition-all duration-300 hover:scale-[1.02] hover:shadow-[0_0_20px_rgba(168,_85,_247,_0.4)] focus:outline-none focus:ring-2 focus:ring-purple-500/50"
+              >
+                Send Message
+              </button>
+            </form>
+          ) : (
+            <div 
+              className="text-center backdrop-blur-xl bg-white/5 p-8 rounded-2xl border border-white/10 shadow-[0_0_40px_rgba(8,_112,_184,_0.7)]"
+              suppressHydrationWarning
+            >
+              <div className="inline-flex p-4 rounded-full bg-green-500/20 mb-4">
+                <svg className="w-8 h-8 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7"/>
+                </svg>
+              </div>
+              <h2 className="text-2xl font-bold text-green-400 mb-4">Message Received!</h2>
+              <p className="text-gray-400 mb-6">Our AI is processing your request. We'll respond shortly.</p>
+              <button
+                onClick={() => setFormSubmitted(false)}
+                className="bg-gradient-to-r from-blue-600 to-purple-600 text-white font-bold py-3 px-6 rounded-lg transition-all duration-300 hover:scale-[1.02] hover:shadow-[0_0_20px_rgba(168,_85,_247,_0.4)]"
+              >
+                Send Another Message
+              </button>
+            </div>
+          )}
         </div>
       </main>
     </div>
