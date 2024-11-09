@@ -60,7 +60,10 @@ export default function Home() {
 
   const handleSearch = useCallback(async () => {
     if (!searchTerm.trim()) return;
-    router.push(`/search-results?searchTerm=${encodeURIComponent(searchTerm)}`);
+    setIsTransitioning(true);
+    setTimeout(() => {
+      router.push(`/search-results?searchTerm=${encodeURIComponent(searchTerm)}`);
+    }, 500);
   }, [searchTerm, router]);
 
   const handleKeyPress = useCallback((e) => {

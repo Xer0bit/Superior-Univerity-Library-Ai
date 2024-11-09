@@ -4,7 +4,7 @@ import { useState, useEffect, Suspense } from "react";
 import Image from 'next/image';
 import ParticlesBackground from '../components/ParticlesBackground';
 
-export default function SearchResultsClient() {
+function SearchResults() {
   const [searchResults, setSearchResults] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState(null);
@@ -172,5 +172,13 @@ export default function SearchResultsClient() {
         </div>
       </main>
     </div>
+  );
+}
+
+export default function Page() {
+  return (
+    <Suspense fallback={<div>Loading...</div>}>
+      <SearchResults />
+    </Suspense>
   );
 }
