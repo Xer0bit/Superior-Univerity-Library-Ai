@@ -6,6 +6,9 @@ export default function Recommendations() {
   const [name, setName] = useState("");
   const [age, setAge] = useState("");
   const [genre, setGenre] = useState("");
+  const [hobbies, setHobbies] = useState("");
+  const [language, setLanguage] = useState("");
+  const [reason, setReason] = useState("");
   const [isLoading, setIsLoading] = useState(false);
 
   const handleRecommend = async () => {
@@ -13,7 +16,7 @@ export default function Recommendations() {
     // Simulate API call with 1 second delay
     await new Promise(resolve => setTimeout(resolve, 1000));
     // Your recommendation logic here
-    console.log("Name:", name, "Age:", age, "Genre:", genre);
+    console.log("Name:", name, "Age:", age, "Genre:", genre, "Hobbies:", hobbies, "Language:", language, "Reason:", reason);
     setIsLoading(false);
   };
 
@@ -37,18 +40,16 @@ export default function Recommendations() {
             />
             <div className="absolute inset-0 bg-blue-400/20 rounded-xl blur opacity-50 group-hover:opacity-100 transition-opacity"></div>
           </div>
-
           <div className="relative mb-6">
             <input
-              type="number"
+              type="text"
               placeholder="Enter your age..."
               value={age}
               onChange={(e) => setAge(e.target.value)}
               className="w-full px-6 py-4 bg-transparent border-2 border-purple-400/30 rounded-xl text-white placeholder-blue-200/50 focus:border-purple-400 focus:ring-2 focus:ring-purple-400/50 transition-all duration-300 outline-none"
             />
           </div>
-
-          <div className="relative mb-8">
+          <div className="relative mb-6">
             <input
               type="text"
               placeholder="Enter your favorite genre..."
@@ -57,7 +58,33 @@ export default function Recommendations() {
               className="w-full px-6 py-4 bg-transparent border-2 border-pink-400/30 rounded-xl text-white placeholder-blue-200/50 focus:border-pink-400 focus:ring-2 focus:ring-pink-400/50 transition-all duration-300 outline-none"
             />
           </div>
-
+          <div className="relative mb-6">
+            <input
+              type="text"
+              placeholder="Enter your hobbies..."
+              value={hobbies}
+              onChange={(e) => setHobbies(e.target.value)}
+              className="w-full px-6 py-4 bg-transparent border-2 border-green-400/30 rounded-xl text-white placeholder-blue-200/50 focus:border-green-400 focus:ring-2 focus:ring-green-400/50 transition-all duration-300 outline-none"
+            />
+          </div>
+          <div className="relative mb-6">
+            <input
+              type="text"
+              placeholder="Enter your preferred language..."
+              value={language}
+              onChange={(e) => setLanguage(e.target.value)}
+              className="w-full px-6 py-4 bg-transparent border-2 border-yellow-400/30 rounded-xl text-white placeholder-blue-200/50 focus:border-yellow-400 focus:ring-2 focus:ring-yellow-400/50 transition-all duration-300 outline-none"
+            />
+          </div>
+          <div className="relative mb-8">
+            <input
+              type="text"
+              placeholder="Enter your reason for reading books..."
+              value={reason}
+              onChange={(e) => setReason(e.target.value)}
+              className="w-full px-6 py-4 bg-transparent border-2 border-red-400/30 rounded-xl text-white placeholder-blue-200/50 focus:border-red-400 focus:ring-2 focus:ring-red-400/50 transition-all duration-300 outline-none"
+            />
+          </div>
           <button
             onClick={handleRecommend}
             disabled={isLoading}

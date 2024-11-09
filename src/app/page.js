@@ -8,6 +8,7 @@ import PageTransition from './components/PageTransition';
 export default function Home() {
   const [searchTerm, setSearchTerm] = useState("");
   const [isTransitioning, setIsTransitioning] = useState(false);
+  const [isClient, setIsClient] = useState(false); // New state variable
   const router = useRouter();
 
   const handleKeyPress = useCallback((e) => {
@@ -17,12 +18,15 @@ export default function Home() {
   }, [searchTerm]);
 
   useEffect(() => {
-    // Only add event listener on client-side
-    if (typeof window !== 'undefined') {
+    setIsClient(true); // Set to true after initial render
+  }, []);
+
+  useEffect(() => {
+    if (isClient) {
       document.addEventListener('keypress', handleKeyPress);
       return () => document.removeEventListener('keypress', handleKeyPress);
     }
-  }, [handleKeyPress]);
+  }, [handleKeyPress, isClient]);
 
   const handleSearch = useCallback(async () => {
     if (!searchTerm.trim()) return;
@@ -47,27 +51,31 @@ export default function Home() {
           <p className="text-md text-gray-600 mt-2">Our library is free for everyone to use and explore.</p>
         </header>
         <main className="flex flex-col items-center">
-          <div className="flex w-full max-w-md mb-8">
-            <input
-              type="text"
-              placeholder="Search for a book..."
-              value={searchTerm}
-              onChange={(e) => setSearchTerm(e.target.value)}
-              className="p-3 border rounded-l w-full shadow-md focus:outline-none focus:ring-2 focus:ring-blue-500"
-            />
-            <button
-              onClick={handleSearch}
-              className="p-3 bg-blue-500 text-white rounded-r shadow-md hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-500"
-            >
-              Search
-            </button>
-          </div>
-          <button
-            onClick={handleMagicButtonClick}
-            className="p-3 bg-purple-500 text-white rounded shadow-md hover:bg-purple-600 focus:outline-none focus:ring-2 focus:ring-purple-500 transform transition-transform duration-300 hover:scale-105 hover:shadow-lg"
-          >
-            Magic Button
-          </button>
+          {isClient && (
+            <>
+              <div className="flex w-full max-w-md mb-8">
+                <input
+                  type="text"
+                  placeholder="Search for a book..."
+                  value={searchTerm}
+                  onChange={(e) => setSearchTerm(e.target.value)}
+                  className="p-3 border rounded-l w-full shadow-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+                />
+                <button
+                  onClick={handleSearch}
+                  className="p-3 bg-blue-500 text-white rounded-r shadow-md hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-500"
+                >
+                  Search
+                </button>
+              </div>
+              <button
+                onClick={handleMagicButtonClick}
+                className="p-3 bg-purple-500 text-white rounded shadow-md hover:bg-purple-600 focus:outline-none focus:ring-2 focus:ring-purple-500 transform transition-transform duration-300 hover:scale-105 hover:shadow-lg"
+              >
+                Magic Button
+              </button>
+            </>
+          )}
         </main>
       </div>
     </>

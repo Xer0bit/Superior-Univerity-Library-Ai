@@ -86,7 +86,7 @@ export default function About() {
           {/* Stats Section */}
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8 mt-16 text-center">
             <div className="p-6">
-              <div className="text-3xl font-bold text-blue-600">100,000+</div>
+              <div className="text-3xl font-bold text-blue-600">28 Million+</div>
               <div className="text-gray-600">Books Available</div>
             </div>
             <div className="p-6">
