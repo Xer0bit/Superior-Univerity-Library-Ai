@@ -59,24 +59,24 @@ export default function About() {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mt-12">
             <div className="bg-[#162032]/80 backdrop-blur-lg p-8 rounded-2xl shadow-xl hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 border border-blue-500/10">
               <div className="text-5xl mb-4">🤖</div>
-              <h2 className="text-2xl font-bold mb-4 text-gray-800">AI-Powered Search</h2>
-              <p className="text-gray-600 leading-relaxed">
+              <h2 className="text-2xl font-bold mb-4 text-blue-100">AI-Powered Search</h2>
+              <p className="text-blue-100/70 leading-relaxed">
                 Our advanced AI algorithms understand context and intent, helping you find exactly what you are looking for with natural language processing.
               </p>
             </div>
 
             <div className="bg-[#162032]/80 backdrop-blur-lg p-8 rounded-2xl shadow-xl hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 border border-blue-500/10">
               <div className="text-5xl mb-4">🧠</div>
-              <h2 className="text-2xl font-bold mb-4 text-gray-800">Smart Learning</h2>
-              <p className="text-gray-600 leading-relaxed">
+              <h2 className="text-2xl font-bold mb-4 text-blue-100">Smart Learning</h2>
+              <p className="text-blue-100/70 leading-relaxed">
                 Personalized recommendations and adaptive learning paths that evolve with your interests and progress.
               </p>
             </div>
 
             <div className="bg-[#162032]/80 backdrop-blur-lg p-8 rounded-2xl shadow-xl hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 border border-blue-500/10">
               <div className="text-5xl mb-4">📚</div>
-              <h2 className="text-2xl font-bold mb-4 text-gray-800">Digital Innovation</h2>
-              <p className="text-gray-600 leading-relaxed">
+              <h2 className="text-2xl font-bold mb-4 text-blue-100">Digital Innovation</h2>
+              <p className="text-blue-100/70 leading-relaxed">
                 Combining traditional library services with cutting-edge technology for an enhanced learning experience.
               </p>
             </div>
@@ -161,20 +161,20 @@ export default function About() {
 
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8 mt-16 text-center">
             <div className="p-6">
-              <div className="text-3xl font-bold text-blue-600">28 Million+</div>
-              <div className="text-gray-600">Books Available</div>
+              <div className="text-3xl font-bold text-blue-400">28 Million+</div>
+              <div className="text-blue-100/70">Books Available</div>
             </div>
             <div className="p-6">
-              <div className="text-3xl font-bold text-purple-600">50+</div>
-              <div className="text-gray-600">Countries Reached</div>
+              <div className="text-3xl font-bold text-purple-400">50+</div>
+              <div className="text-blue-100/70">Countries Reached</div>
             </div>
             <div className="p-6">
-              <div className="text-3xl font-bold text-pink-600">5000+</</div>
-              <div className="text-gray-600">Active Users</div>
+              <div className="text-3xl font-bold text-pink-400">5000+</div>
+              <div className="text-blue-100/70">Active Users</div>
             </div>
             <div className="p-6">
-              <div className="text-3xl font-bold text-indigo-600">24/7</div>
-              <div className="text-gray-600">Accessibility</div>
+              <div className="text-3xl font-bold text-indigo-400">24/7</div>
+              <div className="text-blue-100/70">Accessibility</div>
             </div>
           </div>
 
