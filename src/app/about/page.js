@@ -84,10 +84,10 @@ export default function About() {
 
           <div className="mt-20">
             <h2 className="text-4xl font-bold text-center mb-12 bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
-              Meet Our Team Lead
+              Meet Our Team
             </h2>
-            <div className="flex justify-center">
-              <div className="group relative max-w-md">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-8 justify-center max-w-4xl mx-auto">
+              <div className="group relative">
                 <div className="bg-[#162032] backdrop-blur-lg p-8 rounded-2xl shadow-lg group-hover:shadow-xl transition-all duration-300 border border-blue-500/20">
                   <div className="w-32 h-32 mx-auto mb-4 rounded-full overflow-hidden border-4 border-blue-500/30 group-hover:border-blue-400 transition-all duration-300">
                     <Image
@@ -121,6 +121,41 @@ export default function About() {
                   </div>
                 </div>
               </div>
+
+              <div className="group relative">
+                <div className="bg-[#162032] backdrop-blur-lg p-8 rounded-2xl shadow-lg group-hover:shadow-xl transition-all duration-300 border border-blue-500/20">
+                  <div className="w-32 h-32 mx-auto mb-4 rounded-full overflow-hidden border-4 border-blue-500/30 group-hover:border-blue-400 transition-all duration-300">
+                    <Image
+                      src="https://avatars.githubusercontent.com/u/149118173?v=4"
+                      alt="Abdul Rahman"
+                      width={128}
+                      height={128}
+                      className="object-cover"
+                    />
+                  </div>
+                  <h3 className="text-xl font-bold text-center text-blue-100">Abdul Rahman</h3>
+                  <p className="text-blue-400 text-center mb-2">Backend Developer</p>
+                  <p className="text-blue-100/70 text-center">Specializing in backend architecture and database management with focus on system optimization.</p>
+                  <div className="flex justify-center space-x-4 mt-4">
+                    <a 
+                      href="https://github.com/abdulrahmanJAlabbed" 
+                      target="_blank" 
+                      rel="noopener noreferrer" 
+                      className="px-4 py-2 bg-[#333] text-white rounded-lg hover:bg-[#24292e] transition duration-300 text-sm font-semibold"
+                    >
+                      GitHub Profile
+                    </a>
+                    <a 
+                      href="#" 
+                      target="_blank" 
+                      rel="noopener noreferrer" 
+                      className="px-4 py-2 bg-[#0077b5] text-white rounded-lg hover:bg-[#005885] transition duration-300 text-sm font-semibold"
+                    >
+                      Visit LinkedIn
+                    </a>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
 
@@ -134,7 +169,7 @@ export default function About() {
               <div className="text-gray-600">Countries Reached</div>
             </div>
             <div className="p-6">
-              <div className="text-3xl font-bold text-pink-600">5000+</div>
+              <div className="text-3xl font-bold text-pink-600">5000+</</div>
               <div className="text-gray-600">Active Users</div>
             </div>
             <div className="p-6">
